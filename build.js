@@ -69,7 +69,7 @@ build('ethereum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_
 build('arbitrum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('optimism', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build(
-  'arbitrum-goerli',
+  'arbitrum_goerli',
   "0xab7664500b19a7a2362Ab26081e6DfB971B6F1B0",
   "0x4893376342d5D7b3e31d4184c08b265e5aB2A3f6", 
   "0x622e4726a167799826d1E1D150b076A7725f5D81"

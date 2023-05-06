@@ -1,6 +1,6 @@
 {
   "format": "dpack-1",
-  "network": "arbitrum-goerli",
+  "network": "arbitrum_goerli",
   "types": {
     "SwapRouter": {
       "typename": "SwapRouter",
