@@ -45,18 +45,18 @@ async function build(network, router_address, factory_address, nfpm_address) {
     typename: 'UniswapV3Factory',
     artifact: Factory_artifact
   })
-  await builder.packType({
-    typename: 'UniswapV3Pool',
-    artifact: Pool_artifact
-  })
-
-  await builder.packType({
+  await builder.packObject({
     objectname: 'nonfungiblePositionManager',
     address: nfpm_address,
     typename: 'NonfungiblePositionManager',
     artifact: Nfpm_artifact
   })
+  await builder.packType({
+    typename: 'UniswapV3Pool',
+    artifact: Pool_artifact
+  })
 
+   //console.log(builder._pack)
   const pack = await builder.build();
   fs.writeFileSync(`./pack/uniswapv3_${network}.dpack.json`, JSON.stringify(pack, null, 2));
 }

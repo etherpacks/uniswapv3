@@ -17,8 +17,7 @@ task('deploy-mock-uniswap', 'deploy mock uniswapv3')
   const router = dapp.swapRouter
   const 
 
-  //const factory  = await dapp._types.UniswapV3Factory.deploy()
-  console.log("FACTORY", factory);
+  const factory  = await dapp._types.UniswapV3Factory.deploy()
   const router = await dapp._types.SwapRouter.deploy(factory.address, weth_pack.objects.weth9.address)
   const mockpack = JSON.parse(JSON.stringify(pack))
   mockpack.network = netname
