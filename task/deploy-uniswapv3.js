@@ -10,8 +10,12 @@ task('deploy-mock-uniswap', 'deploy mock uniswapv3')
   const [ signer ]  = await hre.ethers.getSigners()
   const weth_pack = args.weth_pack
   const pack = require(`../pack/uniswapv3_${netname}.dpack.json`)  // reference deployment for mocks
+  return pack
+    /*
   const dapp = await dpack.load(pack, hre.ethers, signer)
   const factory = dapp.uniswapV3Factory;
+  const router = dapp.swapRouter
+  const 
 
   //const factory  = await dapp._types.UniswapV3Factory.deploy()
   console.log("FACTORY", factory);
@@ -24,4 +28,5 @@ task('deploy-mock-uniswap', 'deploy mock uniswapv3')
   const mockjson = JSON.stringify(mockpack, null, 2)
   fs.writeFileSync(mockpath, mockjson)
   return mockpack
+  */
 })
