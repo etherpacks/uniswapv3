@@ -13,7 +13,7 @@ task('deploy-mock-uniswap', 'deploy mock uniswapv3')
   const factory  = await dapp._types.UniswapV3Factory.deploy()
   const router = await dapp._types.SwapRouter.deploy(factory.address, weth_pack.objects.weth9.address)
   const mockpack = JSON.parse(JSON.stringify(pack))
-  mockpack.network = hre.network.name
+  mockpack.network = hre.network.name.replace('_fork', '')
   mockpack.objects.swapRouter.address = router.address
   mockpack.objects.uniswapV3Factory.address = factory.address
   const mockpath = path.join(__dirname, `../pack/uniswapv3_${hre.network.name}.dpack.json`)
