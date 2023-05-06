@@ -16,7 +16,7 @@ task('deploy-mock-uniswap', 'deploy mock uniswapv3')
   mockpack.network = hre.network.name.replace('_fork', '')
   mockpack.objects.swapRouter.address = router.address
   mockpack.objects.uniswapV3Factory.address = factory.address
-  const mockpath = path.join(__dirname, `../pack/uniswapv3_${hre.network.name}.dpack.json`)
+  const mockpath = path.join(__dirname, `../pack/uniswapv3_${mockpack.network}.dpack.json`)
   const mockjson = JSON.stringify(mockpack, null, 2)
   fs.writeFileSync(mockpath, mockjson)
   return mockpack
