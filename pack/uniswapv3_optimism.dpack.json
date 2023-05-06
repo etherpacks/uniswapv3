@@ -19,6 +19,14 @@
       "artifact": {
         "/": "bafkreihifi6scj7hjyyhvvh6qxvzow3zpijbugveepskqm2nil2vxrl5oe"
       }
+    },
+    "NonfungiblePositionManager": {
+      "objectname": "nonfungiblePositionManager",
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "typename": "NonfungiblePositionManager",
+      "artifact": {
+        "/": "bafkreidrlo6gimuqdguz7jbdh5zjkzkljx5p3nrgkk5vg4oqxr6oha6czu"
+      }
     }
   },
   "objects": {
