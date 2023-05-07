@@ -6,7 +6,7 @@ const { task } = require('hardhat/config')
 
 task('deploy-mock-uniswap', 'deploy mock uniswapv3')
 .setAction(async (args, hre) => {
-  const netname = hre.network.name.replace('_fork', '')
+  let netname = args.netname ? args.netname : hre.network.name.replace('_fork', '')
   const [ signer ]  = await hre.ethers.getSigners()
   const weth_pack = args.weth_pack
   const pack = require(`../pack/uniswapv3_${netname}.dpack.json`)  // reference deployment for mocks
