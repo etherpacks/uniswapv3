@@ -67,6 +67,7 @@ const mainnet_nfpm_address = '0xC36442b4a4522E871399CD717aBDD847Ab11FE88';
 build('ethereum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('arbitrum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('optimism', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
+build('goerli', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build(
   'arbitrum_goerli',
   "0xab7664500b19a7a2362Ab26081e6DfB971B6F1B0",
