@@ -56,7 +56,6 @@ async function build(network, router_address, factory_address, nfpm_address) {
     artifact: Pool_artifact
   })
 
-   //console.log(builder._pack)
   const pack = await builder.build();
   fs.writeFileSync(`./pack/uniswapv3_${network}.dpack.json`, JSON.stringify(pack, null, 2));
 }
