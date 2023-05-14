@@ -14,6 +14,12 @@
         "/": "bafkreienusuuwkhdtzv6xk22fbmny4mi5hn6tsdlvokfbnzb3ouyaaxh4u"
       }
     },
+    "NonfungiblePositionManager": {
+      "typename": "NonfungiblePositionManager",
+      "artifact": {
+        "/": "bafkreidrlo6gimuqdguz7jbdh5zjkzkljx5p3nrgkk5vg4oqxr6oha6czu"
+      }
+    },
     "UniswapV3Pool": {
       "typename": "UniswapV3Pool",
       "artifact": {
@@ -36,6 +42,14 @@
       "typename": "UniswapV3Factory",
       "artifact": {
         "/": "bafkreienusuuwkhdtzv6xk22fbmny4mi5hn6tsdlvokfbnzb3ouyaaxh4u"
+      }
+    },
+    "nonfungiblePositionManager": {
+      "objectname": "nonfungiblePositionManager",
+      "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+      "typename": "NonfungiblePositionManager",
+      "artifact": {
+        "/": "bafkreidrlo6gimuqdguz7jbdh5zjkzkljx5p3nrgkk5vg4oqxr6oha6czu"
       }
     }
   }
