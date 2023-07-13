@@ -5,6 +5,8 @@ const factory = require('@uniswap/v3-core/artifacts/contracts/UniswapV3Factory.s
 const pool    = require('@uniswap/v3-core/artifacts/contracts/UniswapV3Pool.sol/UniswapV3Pool.json')
 const router  = require('@uniswap/v3-periphery/artifacts/contracts/SwapRouter.sol/SwapRouter.json')
 const nfpm    = require('@uniswap/v3-periphery/artifacts/contracts/NonfungiblePositionManager.sol/NonfungiblePositionManager.json')
+const urouter = require('@uniswap/universal-router/artifacts/contracts/UniversalRouter.sol/UniversalRouter.json')
+const urouter_address = '0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD'
 
 async function build(network, router_address, factory_address, nfpm_address) {
   const builder = new dpack.PackBuilder(network)
@@ -18,27 +20,33 @@ async function build(network, router_address, factory_address, nfpm_address) {
     abi: pool.abi,
     bytecode: pool.bytecode
   }
-  const Router_artifact = {
-    abi: router.abi,
-    bytecode: router.bytecode
-  }
-
   const Nfpm_artifact = {
     abi: nfpm.abi,
     bytecode: nfpm.bytecode
   }
 
+  const UniversalRouter_artifact = {
+      abi: urouter.abi,
+      bytecode: urouter.bytecode
+  }
+
   fs.writeFileSync(`./link/UniswapV3Factory.json`, json(Factory_artifact))
   fs.writeFileSync(`./link/UniswapV3Pool.json`, json(Pool_artifact))
-  fs.writeFileSync(`./link/SwapRouter.json`, json(Router_artifact))
   fs.writeFileSync(`./link/NonfungiblePositionManager.json`, json(Nfpm_artifact))
 
-  await builder.packObject({
-    objectname: 'swapRouter',
-    address: router_address,
-    typename: 'SwapRouter',
-    artifact: Router_artifact
-  })
+  if (router_address) {
+      const Router_artifact = {
+        abi: router.abi,
+        bytecode: router.bytecode
+      }
+      fs.writeFileSync(`./link/SwapRouter.json`, json(Router_artifact))
+      await builder.packObject({
+        objectname: 'swapRouter',
+        address: router_address,
+        typename: 'SwapRouter',
+        artifact: Router_artifact
+      })
+  }
   await builder.packObject({
     objectname: 'uniswapV3Factory',
     address: factory_address,
@@ -55,6 +63,12 @@ async function build(network, router_address, factory_address, nfpm_address) {
     typename: 'UniswapV3Pool',
     artifact: Pool_artifact
   })
+  await builder.packObject({
+    objectname: 'universalRouter',
+    typename: 'UniversalRouter',
+    artifact: UniversalRouter_artifact,
+    address: urouter_address
+  })
 
   const pack = await builder.build();
   fs.writeFileSync(`./pack/uniswapv3_${network}.dpack.json`, JSON.stringify(pack, null, 2));
@@ -70,7 +84,7 @@ build('optimism', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_
 build('goerli', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build(
   'arbitrum_goerli',
-  "0xab7664500b19a7a2362Ab26081e6DfB971B6F1B0",
+  undefined, // arb goerli uses the old swaprouter; just use universal
   "0x4893376342d5D7b3e31d4184c08b265e5aB2A3f6", 
   "0x622e4726a167799826d1E1D150b076A7725f5D81"
 )
