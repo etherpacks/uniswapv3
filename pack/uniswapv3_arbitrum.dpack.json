@@ -29,7 +29,7 @@
     "UniversalRouter": {
       "typename": "UniversalRouter",
       "artifact": {
-        "/": "bafkreibw4lo6gxpsqboulpxcsfjsbvkmwearhcaitsk2v34bte2i3mjnoi"
+        "/": "bafkreih673vcfcw3suwi74p2rsqkznpoojpyzytzldvhfjm5vg5qhbf7s4"
       }
     }
   },
@@ -62,7 +62,7 @@
       "objectname": "universalRouter",
       "typename": "UniversalRouter",
       "artifact": {
-        "/": "bafkreibw4lo6gxpsqboulpxcsfjsbvkmwearhcaitsk2v34bte2i3mjnoi"
+        "/": "bafkreih673vcfcw3suwi74p2rsqkznpoojpyzytzldvhfjm5vg5qhbf7s4"
       },
       "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD"
     }

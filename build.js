@@ -75,13 +75,16 @@ async function build(network, router_address, factory_address, nfpm_address) {
 }
 
 const mainnet_factory_address = '0x1F98431c8aD98523631AE4a59f267346ea31F984'
+const sepolia_factory_address = '0x0227628f3F023bb0B980b67D528571c95c6DaC1c'
 const mainnet_router_address  = '0xE592427A0AEce92De3Edee1F18E0157C05861564'
 const mainnet_nfpm_address = '0xC36442b4a4522E871399CD717aBDD847Ab11FE88';
+const sepolia_nfpm_address = '0x1238536071E1c677A632429e3655c799b22cDA52';
 
 build('ethereum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('arbitrum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('optimism', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
-build('goerli', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
+build('goerli',   mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
+build('sepolia',  undefined,              sepolia_factory_address, sepolia_nfpm_address)
 build(
   'arbitrum_goerli',
   undefined, // arb goerli uses the old swaprouter; just use universal
