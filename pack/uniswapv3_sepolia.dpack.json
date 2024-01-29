@@ -2,6 +2,12 @@
   "format": "dpack-1",
   "network": "sepolia",
   "types": {
+    "SwapRouter": {
+      "typename": "SwapRouter",
+      "artifact": {
+        "/": "bafkreib2n35tcvimnxjzxrl6qqzg5eyxclbc33kswygf2cqgmleidef5o4"
+      }
+    },
     "UniswapV3Factory": {
       "typename": "UniswapV3Factory",
       "artifact": {
@@ -23,11 +29,19 @@
     "UniversalRouter": {
       "typename": "UniversalRouter",
       "artifact": {
-        "/": "bafkreih673vcfcw3suwi74p2rsqkznpoojpyzytzldvhfjm5vg5qhbf7s4"
+        "/": "bafkreidiwrceqzpohj7jgetpimrlyvcbnxwl6b7zvsjrjcfmg6ywhqo3cy"
       }
     }
   },
   "objects": {
+    "swapRouter": {
+      "objectname": "swapRouter",
+      "address": "0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E",
+      "typename": "SwapRouter",
+      "artifact": {
+        "/": "bafkreib2n35tcvimnxjzxrl6qqzg5eyxclbc33kswygf2cqgmleidef5o4"
+      }
+    },
     "uniswapV3Factory": {
       "objectname": "uniswapV3Factory",
       "address": "0x0227628f3F023bb0B980b67D528571c95c6DaC1c",
@@ -48,7 +62,7 @@
       "objectname": "universalRouter",
       "typename": "UniversalRouter",
       "artifact": {
-        "/": "bafkreih673vcfcw3suwi74p2rsqkznpoojpyzytzldvhfjm5vg5qhbf7s4"
+        "/": "bafkreidiwrceqzpohj7jgetpimrlyvcbnxwl6b7zvsjrjcfmg6ywhqo3cy"
       },
       "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD"
     }
