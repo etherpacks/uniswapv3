@@ -36,7 +36,7 @@
   "objects": {
     "swapRouter": {
       "objectname": "swapRouter",
-      "address": "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
+      "address": "0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E",
       "typename": "SwapRouter",
       "artifact": {
         "/": "bafkreib2n35tcvimnxjzxrl6qqzg5eyxclbc33kswygf2cqgmleidef5o4"

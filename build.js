@@ -35,19 +35,17 @@ async function build(network, router_address, factory_address, nfpm_address) {
   fs.writeFileSync(`./link/NonfungiblePositionManager.json`, json(Nfpm_artifact))
   fs.writeFileSync(`./link/UniversalRouter.json`, json(UniversalRouter_artifact))
 
-  if (router_address) {
-      const Router_artifact = {
-        abi: router.abi,
-        bytecode: router.bytecode
-      }
-      fs.writeFileSync(`./link/SwapRouter.json`, json(Router_artifact))
-      await builder.packObject({
-        objectname: 'swapRouter',
-        address: router_address,
-        typename: 'SwapRouter',
-        artifact: Router_artifact
-      })
+  const Router_artifact = {
+    abi: router.abi,
+    bytecode: router.bytecode
   }
+  fs.writeFileSync(`./link/SwapRouter.json`, json(Router_artifact))
+  await builder.packObject({
+    objectname: 'swapRouter',
+    address: router_address,
+    typename: 'SwapRouter',
+    artifact: Router_artifact
+  })
   await builder.packObject({
     objectname: 'uniswapV3Factory',
     address: factory_address,
@@ -81,7 +79,7 @@ async function build(network, router_address, factory_address, nfpm_address) {
 const mainnet_factory_address = '0x1F98431c8aD98523631AE4a59f267346ea31F984'
 const sepolia_factory_address = '0x0227628f3F023bb0B980b67D528571c95c6DaC1c'
 const mainnet_router_address  = '0xE592427A0AEce92De3Edee1F18E0157C05861564'
-const sepolia_router_address  = '0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD'
+const sepolia_router_address  = '0x3bFA4769FB09eefC5a80d6E87c3B9C650f7Ae48E'
 const mainnet_nfpm_address = '0xC36442b4a4522E871399CD717aBDD847Ab11FE88';
 const sepolia_nfpm_address = '0x1238536071E1c677A632429e3655c799b22cDA52';
 
@@ -91,9 +89,3 @@ build('arbitrum', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_
 build('optimism', mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('goerli',   mainnet_router_address, mainnet_factory_address, mainnet_nfpm_address)
 build('sepolia',  sepolia_router_address, sepolia_factory_address, sepolia_nfpm_address)
-build(
-  'arbitrum_goerli',
-  undefined, // arb goerli uses the old swaprouter; just use universal
-  "0x4893376342d5D7b3e31d4184c08b265e5aB2A3f6", 
-  "0x622e4726a167799826d1E1D150b076A7725f5D81"
-)
