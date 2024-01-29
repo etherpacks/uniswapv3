@@ -30,16 +30,17 @@ async function build(network, router_address, factory_address, nfpm_address) {
       bytecode: urouter.bytecode
   }
 
-  fs.writeFileSync(`./link/UniswapV3Factory.json`, json(Factory_artifact))
-  fs.writeFileSync(`./link/UniswapV3Pool.json`, json(Pool_artifact))
-  fs.writeFileSync(`./link/NonfungiblePositionManager.json`, json(Nfpm_artifact))
-  fs.writeFileSync(`./link/UniversalRouter.json`, json(UniversalRouter_artifact))
-
   const Router_artifact = {
     abi: router.abi,
     bytecode: router.bytecode
   }
+
+  fs.writeFileSync(`./link/UniswapV3Factory.json`, json(Factory_artifact))
+  fs.writeFileSync(`./link/UniswapV3Pool.json`, json(Pool_artifact))
+  fs.writeFileSync(`./link/NonfungiblePositionManager.json`, json(Nfpm_artifact))
+  fs.writeFileSync(`./link/UniversalRouter.json`, json(UniversalRouter_artifact))
   fs.writeFileSync(`./link/SwapRouter.json`, json(Router_artifact))
+
   await builder.packObject({
     objectname: 'swapRouter',
     address: router_address,
